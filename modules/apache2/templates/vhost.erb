@@ -1,0 +1,19 @@
+<VirtualHost *:<%= port %>>
+  ServerAdmin webmaster@<%= name %>
+  ServerName  www.<%= name %>
+  ServerAlias <%= name %>
+
+  # Indexes + Directory Root.
+  DirectoryIndex index.php index.html
+  DocumentRoot /var/www/<%= name %>/public
+
+  # CGI Directory
+  ScriptAlias /cgi-bin/ /var/www/<%= name %>/cgi-bin/
+  <Location /cgi-bin>
+    Options +ExecCGI
+  </Location>
+
+  # Logfiles
+  ErrorLog  /var/www/<%= name %>/logs/error.log
+  CustomLog /var/www/<%= name %>/logs/access.log combined
+</VirtualHost>
