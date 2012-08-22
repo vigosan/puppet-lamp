@@ -22,8 +22,8 @@ class apache2 {
     notify  => Service['apache2']
   }
 
-  file { '/etc/apache2/conf.d/vhosts.conf':
-    source  => 'puppet:///modules/apache2/vhosts.conf',
+  file { '/etc/apache2/ports.conf':
+    source  => 'puppet:///modules/apache2/ports.conf',
     mode    => 644,
     owner   => root,
     group   => root,
